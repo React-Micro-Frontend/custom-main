@@ -52,7 +52,11 @@ module: {
         "./Button": "./src/components/shared/Button.tsx",
         "./Avatar": "./src/components/shared/Avatar.tsx",
         "./LoadingSpinner": "./src/components/shared/LoadingSpinner.tsx",
-        "./QuickLinkCard": "./src/components/shared/QuickLinkCard.tsx"
+        "./QuickLinkCard": "./src/components/shared/QuickLinkCard.tsx",
+        "./store": "./src/store/index.ts",
+        "./store/hooks": "./src/store/hooks.ts",
+        "./store/slices/userSlice": "./src/store/slices/userSlice.ts",
+        "./store/slices/counterSlice": "./src/store/slices/counterSlice.ts"
       },
       shared: {
         react: { 
@@ -66,6 +70,16 @@ module: {
           eager: true,
           strictVersion: false,
           requiredVersion: "^18.2.0 || ^19.0.0" 
+        },
+        "react-redux": {
+          singleton: true,
+          eager: true,
+          strictVersion: false
+        },
+        "@reduxjs/toolkit": {
+          singleton: true,
+          eager: true,
+          strictVersion: false
         },
         "@babel/core": { singleton: true, eager: true, strictVersion: false },
         "@babel/preset-env": { singleton: true, eager: true, strictVersion: false },
