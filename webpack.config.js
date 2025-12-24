@@ -42,7 +42,17 @@ module: {
         userManagement: "userManagement@http://localhost:5001/remoteEntry.js"
       },
       exposes: {
-        "./TailwindStyles": "./src/styles.css"
+        "./TailwindStyles": "./src/styles.css",
+        "./components/shared": "./src/components/shared",
+        "./PageHeader": "./src/components/shared/PageHeader.tsx",
+        "./StatCard": "./src/components/shared/StatCard.tsx",
+        "./Card": "./src/components/shared/Card.tsx",
+        "./InfoCard": "./src/components/shared/InfoCard.tsx",
+        "./SearchInput": "./src/components/shared/SearchInput.tsx",
+        "./Button": "./src/components/shared/Button.tsx",
+        "./Avatar": "./src/components/shared/Avatar.tsx",
+        "./LoadingSpinner": "./src/components/shared/LoadingSpinner.tsx",
+        "./QuickLinkCard": "./src/components/shared/QuickLinkCard.tsx"
       },
       shared: {
         react: { 
@@ -78,6 +88,7 @@ module: {
   devServer: {
     port: 5000,
     open: false,
+    hot:false,
     historyApiFallback: true,
     headers: {
       "Access-Control-Allow-Origin": "*"
