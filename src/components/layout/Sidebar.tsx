@@ -1,22 +1,16 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { ROUTES, MENU_ITEMS } from "../../constants";
 
 export const Sidebar: React.FC = () => {
   const location = useLocation();
-
-  const menuItems = [
-    { name: "User Management", icon: "👥", path: "/user-management" },
-    { name: "Post Clearance Audit", icon: "📋", path: "/post-clearance-audit" },
-    { name: "License Management", icon: "📜", path: "/license-management" },
-    { name: "E Auction Management", icon: "🔨", path: "/e-auction-management" },
-  ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <div className="w-64 h-[100vh] bg-gradient-to-b from-emerald-900 to-emerald-950 text-white flex flex-col shadow-2xl">
       <div className="p-6 border-b border-emerald-700">
-        <Link to="/">
+        <Link to={ROUTES.HOME}>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
             WeBoc Transformation
           </h1>
@@ -25,7 +19,7 @@ export const Sidebar: React.FC = () => {
       </div>
 
       <nav className="flex-1 py-6">
-        {menuItems.map((item, index) => (
+        {MENU_ITEMS.map((item, index) => (
           <Link
             key={index}
             to={item.path}

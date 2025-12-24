@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SearchInput } from "../shared/SearchInput";
 import { Avatar } from "../shared/Avatar";
+import { ROUTES } from "../../constants";
 
 export const Navbar: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -9,7 +10,7 @@ export const Navbar: React.FC = () => {
 
   const handleLogout = () => {
     setIsDropdownOpen(false);
-    navigate("/login");
+    navigate(ROUTES.LOGIN);
   };
 
   return (

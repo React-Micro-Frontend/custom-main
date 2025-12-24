@@ -8,13 +8,14 @@ import { PostClearanceAudit } from "./pages/PostClearanceAudit";
 import { LicenseManagement } from "./pages/LicenseManagement";
 import { EAuctionManagement } from "./pages/EAuctionManagement";
 import { Login } from "./pages/Login";
+import { ROUTES } from "./constants";
 
 export default function App() {
   return (
     <Router>
       <Routes>
         {/* Login Route - No Sidebar/Navbar */}
-        <Route path="/login" element={<Login />} />
+        <Route path={ROUTES.LOGIN} element={<Login />} />
         
         {/* Main App Routes - With Sidebar/Navbar */}
         <Route
@@ -26,11 +27,11 @@ export default function App() {
                 <Navbar />
                 <main className="flex-1 overflow-y-auto">
                   <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/user-management" element={<UserManagement />} />
-                    <Route path="/post-clearance-audit" element={<PostClearanceAudit />} />
-                    <Route path="/license-management" element={<LicenseManagement />} />
-                    <Route path="/e-auction-management" element={<EAuctionManagement />} />
+                    <Route path={ROUTES.HOME} element={<Home />} />
+                    <Route path={ROUTES.USER_MANAGEMENT} element={<UserManagement />} />
+                    <Route path={ROUTES.POST_CLEARANCE_AUDIT} element={<PostClearanceAudit />} />
+                    <Route path={ROUTES.LICENSE_MANAGEMENT} element={<LicenseManagement />} />
+                    <Route path={ROUTES.E_AUCTION_MANAGEMENT} element={<EAuctionManagement />} />
                   </Routes>
                 </main>
               </div>
