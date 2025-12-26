@@ -39,7 +39,10 @@ module: {
       name: "customMain",
       filename: "remoteEntry.js", // ensure remoteEntry is emitted and served
       remotes: {
-        userManagement: "userManagement@http://localhost:5001/remoteEntry.js"
+        userManagement: "userManagement@http://localhost:5001/remoteEntry.js",
+        postClearanceAudit: "postClearanceAudit@http://localhost:5002/remoteEntry.js",
+        licenseManagement: "licenseManagement@http://localhost:5003/remoteEntry.js",
+        eAuctionManagement: "eAuctionManagement@http://localhost:5004/remoteEntry.js"
       },
       exposes: {
         "./TailwindStyles": "./src/styles.css",

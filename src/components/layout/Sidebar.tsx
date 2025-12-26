@@ -12,7 +12,7 @@ export const Sidebar: React.FC = () => {
       <div className="p-6 border-b border-emerald-700">
         <Link to={ROUTES.HOME}>
           <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-300 to-green-400 bg-clip-text text-transparent">
-            WeBoc Transformation
+            WeBOC Transformation
           </h1>
           <p className="text-emerald-300 text-xs mt-1">Management Portal</p>
         </Link>
