@@ -1,5 +1,6 @@
 export const ROUTES = {
-  HOME: '/',
+  LANDING: '/',
+  HOME: '/dashboard',
   LOGIN: '/login',
   USER_MANAGEMENT: '/user-management',
   POST_CLEARANCE_AUDIT: '/post-clearance-audit',
@@ -8,6 +9,7 @@ export const ROUTES = {
 } as const;
 
 export const MENU_ITEMS = [
+  { name: 'Dashboard', icon: '🏠', path: ROUTES.HOME },
   { name: 'User Management', icon: '👥', path: ROUTES.USER_MANAGEMENT },
   { name: 'Post Clearance Audit', icon: '📋', path: ROUTES.POST_CLEARANCE_AUDIT },
   { name: 'License Management', icon: '📜', path: ROUTES.LICENSE_MANAGEMENT },

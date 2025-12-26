@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Navbar } from "./components/layout/Navbar";
+import { Landing } from "./pages/Landing";
 import { Home } from "./pages/Home";
 import { UserManagement } from "./pages/UserManagement";
 import { PostClearanceAudit } from "./pages/PostClearanceAudit";
@@ -17,6 +18,9 @@ export default function App() {
     <Provider store={store}>
       <Router>
         <Routes>
+          {/* Landing Page - No Sidebar/Navbar */}
+          <Route path={ROUTES.LANDING} element={<Landing />} />
+          
           {/* Login Route - No Sidebar/Navbar */}
           <Route path={ROUTES.LOGIN} element={<Login />} />
           
