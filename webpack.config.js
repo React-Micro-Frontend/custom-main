@@ -2,16 +2,17 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 
-const isProduction = process.env.NODE_ENV === 'production';
+module.exports = (env, argv) => {
+  const isProduction = argv.mode === 'production';
 
-const getRemoteUrl = (subdomain, port) => {
-  return isProduction 
-    ? `https://${subdomain}.shoaibarif.site/remoteEntry.js`
-    : `http://localhost:${port}/remoteEntry.js`;
-};
+  const getRemoteUrl = (subdomain, port) => {
+    return isProduction 
+      ? `https://${subdomain}.shoaibarif.site/remoteEntry.js`
+      : `http://localhost:${port}/remoteEntry.js`;
+  };
 
-module.exports = {
-  mode: isProduction ? "production" : "development",
+  return {
+  mode: argv.mode || "development",
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -119,4 +120,5 @@ module: {
       "Access-Control-Allow-Origin": "*"
     }
   }
+  };
 };
