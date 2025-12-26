@@ -1,17 +1,22 @@
 {
   "name": "custom-main",
   "version": "1.0.0",
-  "description": "",
+  "description": "WeBoc Transformation - Shell/Host Application",
   "main": "index.js",
   "exports": {
     "./tailwind.config": "./tailwind.config.js",
     "./styles": "./src/index.css"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "build:dev": "webpack --mode development"
+    "build:dev": "webpack --mode development",
+    "build:analyze": "webpack --mode production --env analyze",
+    "clean": "rm -rf dist node_modules/.cache",
+    "type-check": "tsc --noEmit",
+    "lint": "echo 'Linting placeholder - add ESLint later'",
+    "serve": "npx http-server dist -p 5000 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
