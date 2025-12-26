@@ -2,8 +2,16 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 
+const isProduction = process.env.NODE_ENV === 'production';
+
+const getRemoteUrl = (subdomain, port) => {
+  return isProduction 
+    ? `https://${subdomain}.shoaibarif.site/remoteEntry.js`
+    : `http://localhost:${port}/remoteEntry.js`;
+};
+
 module.exports = {
-  mode: "development",
+  mode: isProduction ? "production" : "development",
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -39,10 +47,10 @@ module: {
       name: "customMain",
       filename: "remoteEntry.js", // ensure remoteEntry is emitted and served
       remotes: {
-        userManagement: "userManagement@http://localhost:5001/remoteEntry.js",
-        postClearanceAudit: "postClearanceAudit@http://localhost:5002/remoteEntry.js",
-        licenseManagement: "licenseManagement@http://localhost:5003/remoteEntry.js",
-        eAuctionManagement: "eAuctionManagement@http://localhost:5004/remoteEntry.js"
+        userManagement: `userManagement@${getRemoteUrl('user', 5001)}`,
+        postClearanceAudit: `postClearanceAudit@${getRemoteUrl('post', 5002)}`,
+        licenseManagement: `licenseManagement@${getRemoteUrl('license', 5003)}`,
+        eAuctionManagement: `eAuctionManagement@${getRemoteUrl('auction', 5004)}`
       },
       exposes: {
         "./TailwindStyles": "./src/styles.css",
