@@ -130,7 +130,7 @@ module: {
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      favicon: false
+      favicon: true
     })
   ],
   devServer: {
