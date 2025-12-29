@@ -9,6 +9,13 @@ build/
 .cache/
 node_modules/.cache/
 
+# Archive files
+*.zip
+*.rar
+*.7z
+*.tar.gz
+*.exe
+
 # Large assets (optimize before committing)
 # Uncomment if you want to exclude large images:
 # *.png
