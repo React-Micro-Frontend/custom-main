@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = (env, argv) => {
@@ -130,7 +131,16 @@ module: {
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      favicon: true
+      favicon: "./public/favicon/favicon.ico"
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "public/favicon",
+          to: "favicon",
+          noErrorOnMissing: true
+        }
+      ]
     })
   ],
   devServer: {
