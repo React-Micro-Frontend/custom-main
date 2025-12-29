@@ -5,6 +5,15 @@ node_modules/
 dist/
 build/
 
+# Webpack cache
+.cache/
+node_modules/.cache/
+
+# Large assets (optimize before committing)
+# Uncomment if you want to exclude large images:
+# *.png
+# !*-small.png
+
 # Environment files
 .env
 .env.local
