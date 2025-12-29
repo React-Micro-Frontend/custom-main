@@ -14,6 +14,7 @@ module.exports = (env, argv) => {
   return {
   mode: argv.mode || "development",
   entry: "./src/index.tsx",
+  devtool: isProduction ? 'source-map' : 'eval-source-map',
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
@@ -24,6 +25,22 @@ module.exports = (env, argv) => {
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
+  },
+  cache: {
+    type: 'filesystem'
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    moduleIds: 'deterministic',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
   },
 module: {
   rules: [
@@ -39,6 +56,13 @@ module: {
         "css-loader",
         "postcss-loader"
       ]
+    },
+    {
+      test: /\.(png|jpg|jpeg|gif|svg|ico|webmanifest)$/i,
+      type: 'asset/resource',
+      generator: {
+        filename: 'assets/[name][ext]'
+      }
     }
   ]
 },
@@ -101,29 +125,18 @@ module: {
           singleton: true,
           eager: true,
           strictVersion: false
-        },
-        "@babel/core": { singleton: true, eager: true, strictVersion: false },
-        "@babel/preset-env": { singleton: true, eager: true, strictVersion: false },
-        "@babel/preset-react": { singleton: true, eager: true, strictVersion: false },
-        "@babel/preset-typescript": { singleton: true, eager: true, strictVersion: false },
-        "babel-loader": { singleton: true, eager: true, strictVersion: false },
-        "typescript": { singleton: true, eager: true, strictVersion: false },
-        "css-loader": { singleton: true, eager: true, strictVersion: false },
-        "style-loader": { singleton: true, eager: true, strictVersion: false },
-        "postcss-loader": { singleton: true, eager: true, strictVersion: false },
-        "postcss": { singleton: true, eager: true, strictVersion: false },
-        "tailwindcss": { singleton: true, eager: true, strictVersion: false },
-        "autoprefixer": { singleton: true, eager: true, strictVersion: false }
+        }
       }
     }),
     new HtmlWebpackPlugin({
-      template: "./public/index.html"
+      template: "./public/index.html",
+      favicon: false
     })
   ],
   devServer: {
     port: 5000,
     open: false,
-    hot:false,
+    hot: true,
     historyApiFallback: true,
     headers: {
       "Access-Control-Allow-Origin": "*"
