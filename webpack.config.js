@@ -68,7 +68,16 @@ module: {
         "./store": "./src/store/index.ts",
         "./store/hooks": "./src/store/hooks.ts",
         "./store/slices/userSlice": "./src/store/slices/userSlice.ts",
-        "./store/slices/counterSlice": "./src/store/slices/counterSlice.ts"
+        "./store/slices/counterSlice": "./src/store/slices/counterSlice.ts",
+        "./utils": "./src/utils/index.ts",
+        "./utils/dateHelpers": "./src/utils/dateHelpers.ts",
+        "./api": "./src/api/index.ts",
+        "./api/apiService": "./src/api/api.service.ts",
+        "./api/types": "./src/api/api.types.ts",
+        "./services": "./src/services/index.ts",
+        "./services/authService": "./src/services/auth.service.ts",
+        "./services/userService": "./src/services/user.service.ts",
+        "./hooks": "./src/hooks/index.ts"
       },
       shared: {
         react: { 
