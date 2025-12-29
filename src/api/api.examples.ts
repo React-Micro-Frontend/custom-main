@@ -183,7 +183,7 @@ export const logout = async () => {
 /**
  * Set Tenant Context
  */
-export const setActiveTenant = (tenantId: string) => {
+  export const setActiveTenant = (tenantId: string) => {
   apiService.setTenantId(tenantId);
 };
 
